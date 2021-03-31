@@ -1,0 +1,1 @@
+CREATE DATABASE workvibe_db;
