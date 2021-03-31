@@ -26,8 +26,4 @@ Steps.hasMany(References, {
 });
 
 
-Steps.hasOne(Progress, {
-  foreignKey: 'progress_id'
-});
-
 module.exports = { Users, Project, Progress, References, Steps };
