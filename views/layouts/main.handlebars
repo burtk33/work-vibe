@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link rel="stylesheet" href="public/style.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="no-shadows">
+      <div class="nav-wrapper">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+        <ul class="left hide-on-med-and-down">
+          <li><a href="">HOME</a></li>
+          <li><a href="">ABOUT</a></li>
+          <li><a href="">CONTACT</a></li>
+          <li><a href="">SIGN UP</a></li>
+        </ul>
+      </div>
+      {{#if logged_in}}
+      <nav>
+        <button class="btn" id="logout">logout</button>
+      </nav>
+      {{/if}}
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="">HOME</a></li>
+      <li><a href="">ABOUT</a></li>
+      <li><a href="">CONTACT</a></li>
+      <li><a href="">SIGN UP</a></li>
+    </ul>
+  </header>
+
+  <main>
+    {{{body}}}
+  </main>
+
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
