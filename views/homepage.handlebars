@@ -15,3 +15,19 @@
     </form>
   </div>
 
+  <ul class="collapsible">
+    {{#each projects as |project|}}
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons"></i>
+        {{project.project_title}}
+      </div>
+      <div class="collapsible-body">
+        <p>{{project.description}}</p>
+        <span class="btn btn-primary">View project</span>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+
+<script src="/js/homepage.js"></script>
