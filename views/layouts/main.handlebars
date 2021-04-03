@@ -7,32 +7,33 @@
     <title>Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <link rel="stylesheet" href="public/style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav class="no-shadows">
+        <nav class="no-shadows" "">
             <div class="nav-wrapper">
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
-                <ul class="left hide-on-med-and-down">
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">ABOUT</a></li>
-                    <li><a href="">CONTACT</a></li>
-                    <li><a href="">SIGN UP</a></li>
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="#!">Sign Up</a></li>
+                    <li><a href="#!">Log Out</a></li>
+
                 </ul>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="">Log Out</a></li>
+                <nav>
+                    <div class="nav-wrapper">
+                        <a href="#!" class="brand-logo">Work Vibe</a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="">HOME</a></li>
+                            <li><a href="">ABOUT</a></li>
+                            <li><a href="">CONTACT</a></li>
+                            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">MY ACCOUNT<i
+                                        class="material-icons right">arrow_drop_down</i></a></li>
+                        </ul>
+                    </div>
+                </nav>
                 </ul>
-            </div>
-        </nav>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="">HOME</a></li>
-            <li><a href="">ABOUT</a></li>
-            <li><a href="">CONTACT</a></li>
-            <li><a href="">SIGN UP</a></li>
-            <li><a href="">LOG OUT</a></li>
-        </ul>
     </header>
 
     <main>
@@ -41,10 +42,12 @@
 
     <footer class="page-footer">
         <div class="container">
-            <p class="copyright-text center-align">©2021 Dogs > Cats</p>
+            <p class="copyright-text center-align">©2021 Don't Trust Morning People</p>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>
