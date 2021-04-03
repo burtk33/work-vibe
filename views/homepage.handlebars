@@ -1,33 +1,42 @@
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="prject-title">Project Title</label>
-        <input class="form-input" type="text" id="project-title" />
+<div class="row">
+  <div class="col s12 m5">
+    <h5><i class="material-icons prefix">add_circle_outline</i>Add new project</h5>
+    <div class="card-panel teal">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6 white-text">
+              <i class="material-icons prefix">assessment</i>
+              <input id="icon_prefix" type="text" class="validate white-text">
+              <label for="icon_prefix"class="white-text">Project title</label>
+            </div>
+            <div class="input-field col s6 white-text">
+              <i class="material-icons prefix">assignment</i>
+              <input id="icon_telephone" type="tel" class="validate white-text">
+              <label for="icon_telephone" class="white-text">Project description</label>
+            </div>
+          </div>
+        </form>
+        <button class="btn btn-primary">Create</button>
       </div>
-      <div class="form-group">
-        <label>Project Description</label>
-        <input class="form-input" type="input" id="project-description" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">submit</button>
-      </div>
-    </form>
+    </div>
   </div>
+</div>
 
-  <ul class="collapsible">
-    {{#each projects as |project|}}
-    <li>
-      <div class="collapsible-header">
-        <i class="material-icons"></i>
-        {{project.project_title}}
-      </div>
-      <div class="collapsible-body">
-        <p>{{project.description}}</p>
-        <span class="btn btn-primary">View project</span>
-      </div>
-    </li>
-    {{/each}}
-  </ul>
+<h5><i class="material-icons prefix">insert_drive_file</i>Current projects</h5>
+<ul class="collapsible popout">
+  {{#each projects as |project|}}
+  <li>
+    <div class="collapsible-header">
+      <i class="material-icons">art_track</i>
+      {{project.project_title}}
+    </div>
+    <div class="collapsible-body">
+      <p>{{project.description}}</p>
+      <span class="btn btn-primary" id="{{project.id}}">View project</span>
+    </div>
+  </li>
+  {{/each}}
+</ul>
 
 <script src="/js/homepage.js"></script>
