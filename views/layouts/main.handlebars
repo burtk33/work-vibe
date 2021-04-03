@@ -7,7 +7,7 @@
     <title>Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <link rel="stylesheet" href="public/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body>
@@ -21,6 +21,9 @@
                     <li><a href="">CONTACT</a></li>
                     <li><a href="">SIGN UP</a></li>
                 </ul>
+                {{#if logged_in}}
+                <button class="btn" id="logout">logout</button>
+                {{/if}}
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
@@ -32,8 +35,12 @@
     </header>
 
     <main>
-    {{{body}}}
-  </main>
+        {{{body}}}
+    </main>
 
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
+
 </html>
