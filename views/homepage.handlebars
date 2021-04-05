@@ -3,21 +3,21 @@
     <h5><i class="material-icons prefix">add_circle_outline</i>Add new project</h5>
     <div class="card-panel teal">
       <div class="row">
-        <form class="col s12">
+        <form class="col s12 create-form">
           <div class="row">
             <div class="input-field col s6 white-text">
               <i class="material-icons prefix">assessment</i>
-              <input id="icon_prefix" type="text" class="validate white-text">
-              <label for="icon_prefix"class="white-text">Project title</label>
+              <input id="new-title" type="text" class="white-text">
+              <label for="new-title"class="white-text">Title</label>
             </div>
             <div class="input-field col s6 white-text">
               <i class="material-icons prefix">assignment</i>
-              <input id="icon_telephone" type="tel" class="validate white-text">
-              <label for="icon_telephone" class="white-text">Project description</label>
+              <input id="new-description" type="tel" class="white-text">
+              <label for="new-description" class="white-text">Description</label>
             </div>
           </div>
+          <button class="btn btn-primary" type="submit" id="create-btn">Create</button>
         </form>
-        <button class="btn btn-primary">Create</button>
       </div>
     </div>
   </div>
@@ -33,7 +33,8 @@
     </div>
     <div class="collapsible-body">
       <p>{{project.description}}</p>
-      <span class="btn btn-primary" id="{{project.id}}">View project</span>
+      <a class="btn btn-primary" href="/projects/{{project.id}}">View</a>
+      <a class="btn btn-primary delete-btn" value="{{project.id}}">Delete</a>
     </div>
   </li>
   {{/each}}
