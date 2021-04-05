@@ -1,10 +1,24 @@
 const router = require('express').Router();
 const { Project } = require('../../models');
+const withAuth = require('../../utils/auth');
+
+
+router.get('/', async (req,res)=>{
+  try{
+    const projectData = await Project.findAll({where:{
+      user_id:req.session.user_id
+    }});
+    res.status(200).json(projectData);
+  }catch(err){
+    res.status(400).json(err);
+  }
+})
 
 router.post('/', async (req, res) => {
   try {
     const newProject = await Project.create({
-      ...req.body,
+      project_title: req.body.title,
+      description: req.body.description,
       user_id: req.session.user_id,
     });
 
@@ -14,7 +28,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const projectData = await Project.destroy({
       where: {

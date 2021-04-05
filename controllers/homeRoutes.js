@@ -18,6 +18,24 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/projects/:id', withAuth, async (req, res) => {
+  try {
+    const projectData = await Project.findByPk({where:{
+      id:req.params.id,
+      user_id: req.session.user_id
+    }});
+
+    const project = projectData.map((project) => project.get({ plain: true }));
+
+    res.render('project', {
+      project,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //GET route for login
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
