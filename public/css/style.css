@@ -1,4 +1,12 @@
-.nav-wrapper {
-    background-color: antiquewhite;
+
+.page-footer {
+    background-color: transparent;
     color: black;
+    font: bold;
+    left: 0;
+    bottom: 0;
+    height: 75px;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
 }
