@@ -20,12 +20,10 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/projects/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Project.findByPk({where:{
-      id:req.params.id,
-      user_id: req.session.user_id
-    }});
+    const projectData = await Project.findByPk(req.params.id, {
+     });
 
-    const project = projectData.map((project) => project.get({ plain: true }));
+    const project = projectData.get({ plain: true });
 
     res.render('project', {
       project,
