@@ -36,11 +36,15 @@ router.get("/projects/:id", withAuth, async (req, res) => {
             "project_id",
             "user_id",
           ],
-          include: {
+          // include: {
+          //   model: References,
+          //   attributes: ["id", "reference", "project_id", "user_id", "step_id"],
+          // },
+        },
+{
             model: References,
             attributes: ["id", "reference", "project_id", "user_id", "step_id"],
           },
-        },
         {
           model: Users,
           attributes: ["id"],
@@ -51,6 +55,7 @@ router.get("/projects/:id", withAuth, async (req, res) => {
     });
 
     const project = projectData.get(({ plain: true }));
+    console.log(project)
 
     res.render("project", {
       project,
