@@ -20,9 +20,10 @@ const newProject = async (event) => {
 };
 
 const deleteProject = async (event) => {
-    
-    const deleteID=event.target.getAttribute('value');
-        const response = await fetch(`/api/projects/${deleteID}`, {
+    if (event.target.hasAttribute('data-id')) {
+        const deleteId = event.target.getAttribute('data-id');
+        alert(deleteId);
+        const response = await fetch(`/api/projects/${deleteId}`, {
             method: 'DELETE'
         });
         if (response.ok) {
@@ -31,12 +32,14 @@ const deleteProject = async (event) => {
             alert('Failed to delete project');
         }
     }
+}
+
 
 document
     .querySelector('.create-form')
     .addEventListener('submit', newProject);
 
-document.querySelector('.delete-btn').addEventListener('click', deleteProject);
+document.querySelector('.collapsible').addEventListener('click', deleteProject);
 
 document.addEventListener('DOMContentLoaded', function () {
     M.AutoInit();

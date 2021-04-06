@@ -13,17 +13,17 @@ const seedAll = async () => {
   await seedUsers();
     console.log('USERS SEEDED');
 
-    await seedProject();
-    console.log('PROJECTS SEEDED');
+   // await seedProject();
+    //console.log('PROJECTS SEEDED');
 
-    await seedProgress();
-    console.log('PROGRESS SEEDED');
+    //await seedProgress();
+    //console.log('PROGRESS SEEDED');
   
-  await seedSteps();
-    console.log('STEPS SEEDED');
+  //await seedSteps();
+    //console.log('STEPS SEEDED');
 
-  await seedReferences();
-    console.log('REFERENCES SEEDED');
+  //await seedReferences();
+    //console.log('REFERENCES SEEDED');
 
   process.exit(0);
 };

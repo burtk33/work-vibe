@@ -1,13 +1,11 @@
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { Project,References, Progress } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
 router.get('/', async (req,res)=>{
   try{
-    const projectData = await Project.findAll({where:{
-      user_id:req.session.user_id
-    }});
+    const projectData = await Project.findAll({include:{Progress}});
     res.status(200).json(projectData);
   }catch(err){
     res.status(400).json(err);
@@ -28,12 +26,12 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const projectData = await Project.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        user_id: req.session.user_id
       },
     });
 
