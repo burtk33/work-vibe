@@ -8,7 +8,7 @@
             <div class="input-field col s6 white-text">
               <i class="material-icons prefix">assessment</i>
               <input id="new-title" type="text" class="white-text">
-              <label for="new-title"class="white-text">Title</label>
+              <label for="new-title" class="white-text">Title</label>
             </div>
             <div class="input-field col s6 white-text">
               <i class="material-icons prefix">assignment</i>
@@ -24,20 +24,25 @@
 </div>
 
 <h5><i class="material-icons prefix">insert_drive_file</i>Current projects</h5>
+{{#if projects}}
 <ul class="collapsible popout">
+
   {{#each projects as |project|}}
-  <li>
-    <div class="collapsible-header">
-      <i class="material-icons">art_track</i>
-      {{project.project_title}}
-    </div>
-    <div class="collapsible-body">
-      <p>{{project.description}}</p>
-      <a class="btn btn-primary" href="/projects/{{project.id}}">View</a>
-      <a class="btn btn-primary delete-btn" value="{{project.id}}">Delete</a>
-    </div>
-  </li>
+    <li>
+     <div class="collapsible-header">
+        <i class="material-icons">art_track</i>
+        {{project.project_title}}
+      </div>
+      <div class="collapsible-body">
+        <p>{{project.description}}</p>
+        <a class="btn btn-primary" href="/projects/{{project.id}}">View</a>
+        <a class="btn btn-primary delete-btn" data-id="{{project.id}}">Delete</a>
+      </div>
+    </li>
   {{/each}}
+  {{else}}
+  <h5>You have no current projects</h5>
 </ul>
+{{/if}}
 
 <script src="/js/homepage.js"></script>

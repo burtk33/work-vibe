@@ -14,7 +14,8 @@ Project.belongsTo(Users, {
 });
 
 Project.hasMany(Steps, {
-  foreignKey: 'project_id'
+  foreignKey: 'project_id',
+  onDelete: 'CASCADE'
 });
 
 Steps.belongsTo(Project, {
@@ -22,7 +23,8 @@ Steps.belongsTo(Project, {
 });
 
 Steps.hasMany(References, {
-  foreignKey: 'step_id'
+  foreignKey: 'step_id',
+  onDelete: 'CASCADE'
 });
 
 

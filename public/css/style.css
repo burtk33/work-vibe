@@ -25,8 +25,12 @@ nav {
     color: white;
 }
 
-
-
 .intro {
     text-align: center;
   }
+
+.btn {
+    background-color: #687a61;
+    color: white;
+      }
+      
