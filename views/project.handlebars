@@ -5,35 +5,41 @@
     </div>
     <div class="row">
 
-        <div class="col s8 m5">
+        <div class="col s8">
 
 
             <div class="row">
-                <p>TITLE: {{project.project_title}}</p>
+                <h2>{{project.project_title}}</h2>
 
-                <p>ABOUT: {{project.description}}</p>
+                <h5>ABOUT: {{project.description}}</h5>
 
                 <div class="row">
-                    <p> Milestones: </p>
+                    <h5> Milestones: </h5>
 
                     {{#each project.steps as |step|}}
                     <p>{{step.step_number}}. {{step.title}}: {{step.description}}</p>
                     {{/each}}
+
+                    <a class="waves-effect waves-light btn addstep">Add Step</a>
                 </div>
+
             </div>
 
         </div>
 
 
-        <div class="col s4 m5">
+        <div class="col s4">
 
             <div class="row">
                 <p> References: </p>
 
-                {{#each project.steps.references }}
-                <p>{{reference}}</p>
+                {{#each project.references }}
+                <a href="{{reference}}">{{reference}}</a>
                 {{/each}}
+               
             </div>
+             <a class="waves-effect waves-light btn addref">Add Reference</a>
+
 
 
         </div>
