@@ -11,6 +11,7 @@
     position: absolute;
 }
 
+
 #container {
     margin: 20px;
     width: 400px;
@@ -65,3 +66,36 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+body {
+    background-image: url(/images/background.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #687a61;
+}
+
+nav {
+    background-color: #a5593c;
+    color: white;
+}
+
+.intro {
+    text-align: center;
+  }
+
+.btn {
+    background-color: #687a61;
+    color: white;
+}
+
+.loginhead {
+    text-align: center;
+}
+
+.logbut {
+    text-align: center;
+}
+
+

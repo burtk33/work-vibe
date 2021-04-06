@@ -61,10 +61,8 @@ router.get("/projects/:id", withAuth, async (req, res) => {
   }
 });
 
+router.get('/signup', async (req, res) => {
 
-
-
-router.get("/signup", withAuth, async (req, res) => {
   try {
     res.render("signup");
   } catch (err) {

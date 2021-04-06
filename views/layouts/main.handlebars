@@ -8,33 +8,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/style.css" />
 
 </head>
 
 <body>
     <header>
-        <nav class="no-shadows" "">
+        <nav class="no-shadows">
             <div class="nav-wrapper">
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 <ul id="dropdown1" class="dropdown-content">
-                    <li><a href="/signup">Sign Up</a></li>
-                    <li><a href="#!">Log Out</a></li>
 
+                    {{#if logged_in}}
+                    <li><a href="">Log Out</a></li>
+                    {{else}}
+                    <li id="logout"><a href="/signup">Sign Up</a></li>
+                    {{/if}}
                 </ul>
                 <nav>
                     <div class="nav-wrapper">
                         <a href="#!" class="brand-logo">Work Vibe</a>
                         <ul class="right hide-on-med-and-down">
-                            <li><a href="">HOME</a></li>
+                            <li><a href="/landingpage">HOME</a></li>
                             <li><a href="">ABOUT</a></li>
-                            <li><a href="">CONTACT</a></li>
+                            <li><a href="/contact">CONTACT</a></li>
                             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">MY ACCOUNT<i
                                         class="material-icons right">arrow_drop_down</i></a></li>
                         </ul>
                     </div>
                 </nav>
                 </ul>
+            </div>
+        </nav>
     </header>
 
     <main>
@@ -43,7 +48,7 @@
 
     <footer class="page-footer">
         <div class="container" "footer">
-            <p class="copyright-text center-align middle-align">©2021 Don't Trust Morning People</p>
+            <p class="copyright-text center-align">©2021 Don't Trust Morning People</p>
         </div>
     </footer>
 
