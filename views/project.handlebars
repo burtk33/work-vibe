@@ -1,31 +1,88 @@
 <div class="container">
+
     <div class="row">
 
+        <div class="col s12">
 
-    </div>
-    <div class="row">
-
-        <div class="col s8">
-
-
+            <input type="hidden" name="project-id" value={{project.id}} />
             <div class="row">
                 <h2>{{project.project_title}}</h2>
 
                 <h5>ABOUT: {{project.description}}</h5>
+            </div>
+        </div>
+        <div class="col s8">
+            <div class="row">
+                <h5> Milestones: </h5>
 
-                <div class="row">
-                    <h5> Milestones: </h5>
+                {{#each project.steps as |step|}}
+                <div class="row projectstep">
+                    <div class="col s4">
+                        <input type="hidden" name="project-id" value={{step.id}} class={{step.step_number}} />
 
-                    {{#each project.steps as |step|}}
-                    <p>{{step.step_number}}. {{step.title}}: {{step.description}}</p>
-                    {{/each}}
+                        <p>{{step.step_number}}. {{step.title}}: {{step.description}}</p>
 
-                    <a class="waves-effect waves-light btn addstep">Add Step</a>
+                    </div>
+                    <div class="col s2">
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Status</a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='statusdropdown' class='dropdown-content status'>
+                            <li><a href="#!">one</a></li>
+                            <li><a href="#!">two</a></li>
+                            <li class="divider" tabindex="-1"></li>
+                            <li><a href="#!">three</a></li>
+                            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col s3">
+                        <div class="progress" id="progress"></div>
+                    </div>
                 </div>
+                {{/each}}
+
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+                        <form class="col s12">
+                            <div class="row">
+                            
+                                
+                                <div class="input-field col s4">
+                                    <input id="title" type="text" class="validate">
+                                    <label for="title">Step Title</label>
+                                </div>
+                                <div class="input-field col s8">
+                                    <input id="description" type="text" class="validate">
+                                    <label for="description">Description</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                 <a class="waves-effect waves-light btn submitstep">Add</a>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <a class="waves-effect waves-light btn addstep">Add Step</a>
 
             </div>
 
         </div>
+
+
+
+
+
+
+
 
 
         <div class="col s4">
@@ -36,12 +93,9 @@
                 {{#each project.references }}
                 <a href="{{reference}}">{{reference}}</a>
                 {{/each}}
-               
+
             </div>
-             <a class="waves-effect waves-light btn addref">Add Reference</a>
-
-
+            <a class="waves-effect waves-light btn addref">Add Reference</a>
 
         </div>
     </div>
-</div>
