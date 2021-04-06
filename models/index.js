@@ -32,5 +32,11 @@ Project.hasMany(References, {
   onDelete: 'CASCADE'
 });
 
+Progress.hasMany(Steps, {
+  foreignKey: 'progress_id',
+  onDelete: 'CASCADE'
+})
+
+
 
 module.exports = { Users, Project, Progress, References, Steps };
