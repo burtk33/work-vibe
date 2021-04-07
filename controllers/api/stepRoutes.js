@@ -1,9 +1,27 @@
 const router = require('express').Router();
-const { Steps } = require('../../models');
+const { Steps, Progress } = require('../../models');
 
 
 
-router.get('/', async (req,res)=>{
+router.get('/:id', async (req,res)=>{
+    try{
+      const projectData = await Steps.findByPk(req.params.id, { 
+        include: 
+        {
+          model: Progress,
+          attributes: ["id", "status", "part_of_total",],
+        },
+        
+      })
+
+      res.status(200).json(projectData);
+     
+    } catch(err){
+      res.status(400).json(err);
+    }
+  });
+
+  router.get('/', async (req,res)=>{
     try{
       const projectData = await Steps.findAll({});
       res.status(200).json(projectData);

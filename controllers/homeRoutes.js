@@ -35,7 +35,6 @@ router.get("/projects/:id", withAuth, async (req, res) => {
             "project_id",
             "user_id",
           ],
-      
         },
         {
           model: References,
@@ -45,7 +44,6 @@ router.get("/projects/:id", withAuth, async (req, res) => {
           model: Users,
           attributes: ["id"],
         },
-        
       ],
     });
 
@@ -61,8 +59,7 @@ router.get("/projects/:id", withAuth, async (req, res) => {
   }
 });
 
-router.get('/signup', async (req, res) => {
-
+router.get("/signup", async (req, res) => {
   try {
     res.render("signup");
   } catch (err) {
