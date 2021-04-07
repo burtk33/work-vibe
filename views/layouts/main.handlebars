@@ -17,23 +17,18 @@
         <nav class="no-shadows">
             <div class="nav-wrapper">
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
-                <ul id="dropdown1" class="dropdown-content">
-
-                    {{#if logged_in}}
-                    <li><a href="">Log Out</a></li>
-                    {{else}}
-                    <li id="logout"><a href="/signup">Sign Up</a></li>
-                    {{/if}}
-                </ul>
                 <nav>
                     <div class="nav-wrapper">
                         <a href="/" class="brand-logo">Work Vibe</a>
                         <ul class="right hide-on-med-and-down">
-                            <li><a href="/landingpage">HOME</a></li>
+                            <li><a href="/">HOME</a></li>
                             <li><a href="">ABOUT</a></li>
                             <li><a href="/contact">CONTACT</a></li>
-                            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">MY ACCOUNT<i
-                                        class="material-icons right">arrow_drop_down</i></a></li>
+                            {{#if logged_in}}
+                            <li id="logout"><a href="">LOG OUT</a></li>
+                            {{else}}
+                            <li><a href="/signup">SIGN UP</a></li>
+                            {{/if}}
                         </ul>
                     </div>
                 </nav>
@@ -53,10 +48,10 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/0.6.1/progressbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/0.6.1/progressbar.js"></script>
     <script src="/js/main.js"></script>
-   
-  
+
+
 </body>
 
 </html>
