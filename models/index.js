@@ -34,7 +34,7 @@ Project.hasMany(References, {
 
 Progress.hasMany(Steps, {
   foreignKey: 'progress_id',
-  onDelete: 'CASCADE'
+
 })
 
 

@@ -28,6 +28,10 @@
     display: block;
 }
 
+#project_card {
+    margin:2%;
+    padding:2%;
+}
 
 /* The Modal (background) */
 .modal {

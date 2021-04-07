@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 
     <div class="row">
 
@@ -11,35 +11,51 @@
                 <h5>ABOUT: {{project.description}}</h5>
             </div>
         </div>
-        <div class="col s8">
+    </div>
+    <div class="row">
+        <div class="card panel col s8" id="project_card">
             <div class="row">
                 <h5> Milestones: </h5>
 
+
                 {{#each project.steps as |step|}}
                 <div class="row projectstep">
-                    <div class="col s4">
-                        <input type="hidden" name="project-id" value={{step.id}} class={{step.step_number}} />
+                    <div class="col s6">
+                        <div class="col s8">
+                            <div class="col s6">
+                                <input type="hidden" name="project-id" value={{step.id}} class={{step.step_number}} />
 
-                        <p>{{step.step_number}}. {{step.title}}: {{step.description}}</p>
-
+                                <p>{{step.step_number}}. {{step.title}}:
+                            </div>
+                            <div class="col s6">
+                                <p> {{step.description}}</p>
+                            </div>
+                        </div>
+                        <div class="col s4">
+            
+                            <p class="current_status" id="{{step.progress_id}}"></p>
+                        </div>
                     </div>
-                    <div class="col s2">
+                    <div class="col">
                         <!-- Dropdown Trigger -->
-                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Status</a>
+
+                        <a class='dropdown-trigger statustrig btn' href='#' data-target='statusdropdown'>Status</a>
 
                         <!-- Dropdown Structure -->
                         <ul id='statusdropdown' class='dropdown-content status'>
-                            <li><a href="#!">one</a></li>
-                            <li><a href="#!">two</a></li>
-                            <li class="divider" tabindex="-1"></li>
-                            <li><a href="#!">three</a></li>
-                            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                            <li><a class = "dropdown_item" href="#!">Planning</a></li>
+                            <li><a class = "dropdown_item" href="#!">To Do</a></li>
+                            <li><a class = "dropdown_item" href="#!">In Progress</a></li>
+                            <li><a class = "dropdown_item" href="#!">Done</a></li>
+                           
                         </ul>
                     </div>
 
-                    <div class="col s3">
-                        <div class="progress" id="progress"></div>
+                    <div class="col">
+                        <div class="progress" id="container">
+
+
+                        </div>
                     </div>
                 </div>
                 {{/each}}
@@ -52,8 +68,8 @@
 
                         <form class="col s12">
                             <div class="row">
-                            
-                                
+
+
                                 <div class="input-field col s4">
                                     <input id="title" type="text" class="validate">
                                     <label for="title">Step Title</label>
@@ -64,7 +80,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                 <a class="waves-effect waves-light btn submitstep">Add</a>
+                                <a class="waves-effect waves-light btn submitstep">Add</a>
                             </div>
                         </form>
                     </div>
@@ -85,7 +101,7 @@
 
 
 
-        <div class="col s4">
+        <div class="card panel col s2" id="project_card">
 
             <div class="row">
                 <p> References: </p>
@@ -99,3 +115,18 @@
 
         </div>
     </div>
+</div>
+
+
+
+
+<body>
+    <script src="/js/addstep.js"></script>
+    <script src="/js/project.js"></script>
+
+    <script src="/js/progressbarstat.js"></script>
+
+
+
+
+</body>
