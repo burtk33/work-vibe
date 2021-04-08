@@ -1,102 +1,59 @@
-// // const ProgressBar = import(Line)
-// let container = document.querySelector(".progress");
-// // Line(container, {
-// //   strokeWidth: 2
-
-// // });
 
 
+var svg = d3.select('.progress')
+.append('svg')
+.attr('height', 100)
+.attr('width', 500);
 
+var states = ['started', 'inProgress', 'completed'],
+  segmentWidth = 100,
+currentState = 'started';
 
-// // const stepid = document.querySelector('input[name="project-id"]').value.trim();
+var colorScale = d3.scale.ordinal()
+.domain(states)
+.range(['yellow', 'green', 'blue']);
 
-// function stepNumber() {
-//  new ProgressBar.Line(container, {
-//   strokeWidth: 2
-// });
-// }
+svg.append('rect')
+.attr('class', 'bg-rect')
+.attr('rx', 10)
+.attr('ry', 10)
+.attr('fill', 'gray')
+.attr('height', 15)
+.attr('width', function(){
+  return segmentWidth * states.length;
+})
+.attr('x', 0);
 
-// // // function stepNumber() {
-// // // //   const response = fetch(`/progress/:${stepid}`, {
-// // // //     method: "GET",
-// // // //     body: JSON.stringify({}),
-// // // //     headers: { "Content-Type": "application/json" },
-// // // //   });
+var progress = svg.append('rect')
+      .attr('class', 'progress-rect')
+      .attr('fill', function(){
+        return colorScale(currentState);
+      })
+      .attr('height', 15)
+      .attr('width', 0)
+      .attr('rx', 10)
+      .attr('ry', 10)
+      .attr('x', 0);
 
-// // // //   if (response.ok) {
-// // // //     console.log(response);
-// // //     var bar = new ProgressBar.Line(container, {
-// // //       strokeWidth: 4,
-// // //     //   easing: "easeInOut",
-// // //     //   duration: 1400,
-// // //     //   color: "#FFEA82",
-// // //     //   trailColor: "#eee",
-// // //     //   trailWidth: 1,
-// // //       svgStyle: { width: "100%", height: "100%" },
-// // //       text: {
-// // //         style: {
-// // //           // Text color.
-// // //           // Default: same as stroke color (options.color)
-// // //           color: "#black",
-// // //           position: "absolute",
-// // //           right: "0",
-// // //           top: "30px",
-// // //           padding: 0,
-// // //           margin: 0,
-// // //           transform: null,
-// // //         },
-// // //         autoStyleContainer: false,
-// // //       },
-// // //     //   from: { color: "#FFEA82" },
-// // //     //   to: { color: "#ED6A5A" },
-// // //     //   step: (state, bar) => {
-// // //     //     bar.setText(Math.round(bar.value() * 100) + " %");
-// // //     //   },
-// // //     });
+progress.transition()
+.duration(1000)
+.attr('width', function(){
+  var index = states.indexOf(currentState);
+  return (index + 1) * segmentWidth;
+});
 
-// // //     bar.set(progress)
-// //   // }
-// // // }
-
-// window.onload = () => stepNumber();
-// var ProgressBar = require('progressbar.js');
-
-// // // Assuming we have an empty <div id="container"></div> in
-// // // HTML
-// // var bar = new ProgressBar.Line('#container', {easing: 'easeInOut'});
-// // bar.animate(1);
-
-// var bar = new ProgressBar.Line(container, {
-//   strokeWidth: 4,
-//   easing: 'easeInOut',
-//   duration: 1400,
-//   color: '#FFEA82',
-//   trailColor: '#eee',
-//   trailWidth: 1,
-//   svgStyle: {width: '100%', height: '100%'},
-//   text: {
-//     style: {
-//       // Text color.
-//       // Default: same as stroke color (options.color)
-//       color: '#999',
-//       position: 'absolute',
-//       right: '0',
-//       top: '30px',
-//       padding: 0,
-//       margin: 0,
-//       transform: null
-//     },
-//     autoStyleContainer: false
-//   },
-//   from: {color: '#FFEA82'},
-//   to: {color: '#ED6A5A'},
-//   step: (state, bar) => {
-//     bar.setText(Math.round(bar.value() * 100) + ' %');
-//   }
-// });
-
-// bar.animate(1.0);  // Number from 0.0 to 1.0
-
+function moveProgressBar(state){
+progress.transition()
+  .duration(1000)
+  .attr('fill', function(){
+    return colorScale(state);
+  })
+  .attr('width', function(){
+    var index = states.indexOf(state);
+    return (index + 1) * segmentWidth;
+  });
+}
+//end progress bar
 
 document.addEventListener("DOMContentLoaded", function() {
 let curStatus = []

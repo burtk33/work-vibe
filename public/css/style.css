@@ -12,20 +12,10 @@
 }
 
 
-#container {
-    margin: 20px;
-    width: 400px;
-    height: 8px;
-    position: relative;
-  }
 
   .progress {
-    height: 300px;
-}
-
-.progress > svg {
-    height: 100%;
-    display: block;
+    height: 25px;
+    background-color: white;
 }
 
 #project_card {
