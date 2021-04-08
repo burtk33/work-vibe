@@ -2,8 +2,8 @@ const router = require("express").Router();
 const { Users, Project, Steps, References, Progress } = require("../models");
 const withAuth = require("../utils/auth");
 
-//GET route for homepage
-router.get("/", withAuth, async (req, res) => {
+
+router.get("/homepage", withAuth, async (req, res) => {
   try {
     const projectData = await Project.findAll({
       where: { user_id: req.session.user_id },
@@ -15,6 +15,54 @@ router.get("/", withAuth, async (req, res) => {
       projects,
       logged_in: req.session.logged_in,
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/", async (req, res) => {
+  try {
+    res.render("landingpage");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/contact", async (req, res) => {
+  try {
+    res.render("contact");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/login", async (req, res) => {
+  try {
+    res.render("login");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/about", async (req, res) => {
+  try {
+    res.render("about");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/signup", async (req, res) => {
+  try {
+    res.render("signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/project", async (req, res) => {
+  try {
+    res.render("project");
   } catch (err) {
     res.status(500).json(err);
   }
