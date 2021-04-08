@@ -67,6 +67,15 @@ router.get("/signup", async (req, res) => {
   }
 });
 
+router.get("/landingpage", async (req, res) => {
+  try {
+    res.render("landingpage");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 //GET route for login
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {

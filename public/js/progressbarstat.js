@@ -98,7 +98,7 @@
 // bar.animate(1.0);  // Number from 0.0 to 1.0
 
 
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
 let curStatus = []
 let statuses = []
 
