@@ -15,6 +15,15 @@
     <div class="row">
         <div class="card panel col s8" id="project_card">
             <div class="row">
+                <h5>Overall Progress</h5>
+                    <select class="progressSelector" onchange="moveProgressBar(value)">
+                            <option value="started">Started</option>
+                            <option value="inProgress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    <div class="progress" value={{project}}></div>
+                </div>
+            <div class="row">
                 <h5> Milestones: </h5>
 
 
@@ -32,7 +41,7 @@
                             </div>
                         </div>
                         <div class="col s4">
-            
+
                             <p class="current_status" id="{{step.progress_id}}"></p>
                         </div>
                     </div>
@@ -42,21 +51,16 @@
                         <a class='dropdown-trigger statustrig btn' href='#' data-target='statusdropdown'>Status</a>
 
                         <!-- Dropdown Structure -->
-                        <ul id='statusdropdown' class='dropdown-content status'>
-                            <li><a class = "dropdown_item" href="#!">Planning</a></li>
-                            <li><a class = "dropdown_item" href="#!">To Do</a></li>
-                            <li><a class = "dropdown_item" href="#!">In Progress</a></li>
-                            <li><a class = "dropdown_item" href="#!">Done</a></li>
-                           
+                        <ul id='statusdropdown' class='dropdown-content status' onchange="moveProgressBar(value)">
+                            <li><a class="dropdown_item" href="#!" value="started">Planning</a></li>
+                            <li><a class="dropdown_item" href="#!">To Do</a></li>
+                            <li><a class="dropdown_item" href="#!" value="inProgress">In Progress</a></li>
+                            <li><a class="dropdown_item" href="#!" value="completed">Done</a></li>
+
                         </ul>
+
                     </div>
-
-                    <div class="col">
-                        <div class="progress" id="container">
-
-
-                        </div>
-                    </div>
+                    
                 </div>
                 {{/each}}
 
@@ -121,9 +125,9 @@
 
 
 <body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
     <script src="/js/addstep.js"></script>
     <script src="/js/project.js"></script>
-
     <script src="/js/progressbarstat.js"></script>
 
 
