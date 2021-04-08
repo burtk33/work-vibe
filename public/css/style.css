@@ -1,16 +1,14 @@
-
-.page-footer {
-    background-color: transparent;
-    color: black;
-    font: bold;
-    left: 0;
-    bottom: 0;
-    height: 75px;
-    width: 100%;
-    overflow: hidden;
-    position: absolute;
+main {
+  flex: 1 0 auto;
 }
 
+.page-footer {
+  background-color: transparent;
+  color: black;
+    font-weight: 300;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
 
 #container {
     margin: 20px;
@@ -78,6 +76,9 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-color: #687a61;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 nav {
@@ -87,7 +88,7 @@ nav {
 
 .intro {
     text-align: center;
-  }
+    }
 
 .btn {
     background-color: #687a61;
@@ -102,4 +103,54 @@ nav {
     text-align: center;
 }
 
+#ShannonPic {
+  margin-top: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
 
+#KylePic {
+  margin-top: 40px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+#MorganPic {
+  margin-top: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+#meetTeamBtn {
+  margin-bottom: 15px;
+  background-color: rgba(3, 3, 54, 0.918);
+}
+
+#Shan:hover,
+#Kyle:hover,
+#Morg:hover {
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+#Shan,
+#Kyle,
+#Morg {
+  transition: transform 0.5s ease;
+}
+
+#ShannonAbout,
+#KyleAbout,
+#MorganAbout {
+  font-size: 18px;
+}
+
+.fa-github {
+  font-size: 40px;
+  color: #a5593c;
+}
+
+#meetTeamBtn {
+  color: #687a61;
+}
