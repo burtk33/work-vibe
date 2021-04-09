@@ -6,16 +6,16 @@
 
             <input type="hidden" name="project-id" value={{project.id}} />
             <div class="row">
-            <div class="col s6">
-                <h2>{{project.project_title}}</h2>
+                <div class="col s6">
+                    <h2>{{project.project_title}}</h2>
 
-                <h5>ABOUT: {{project.description}}</h5>
+                    <h5>ABOUT: {{project.description}}</h5>
                 </div>
                 <div class="col s6 rect1">
                     <h5>CURRENT PROGRESS:</h5>
-                 <div id="rect"></div>
-                 
-                 </div>
+                    <div id="rect"></div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
                     <div class="col s6">
                         <div class="col s8">
                             <div class="col s6">
-                                <input type="hidden" name="project-id" value={{step.id}} class={{step.step_number}} />
+                                <input type="hidden" name="step-id" value={{step.id}} class={{step.step_number}} />
 
                                 <p>{{step.step_number}}. {{step.title}}:
                             </div>
@@ -47,12 +47,12 @@
                     <div class="col">
                         <!-- Dropdown Trigger -->
 
-                        <a class='dropdown-trigger statustrig btn ' id={{{step.id}}} href='#'
-                            data-target='statusdropdown'>Status</a>
+                        <a class='dropdown-trigger statustrig btn {{{step.id}}}' id={{{step.id}}} href='#'
+                            data-target='statusdropdown{{{step.id}}}'>Status</a>
 
                         <!-- Dropdown Structure -->
                         <div id={{step.id}}>
-                            <ul id='statusdropdown' onchange="moveProgressBar(value)" class='dropdown-content status'>
+                            <ul id='statusdropdown{{{step.id}}}' onchange="moveProgressBar(value)" class='dropdown-content status'>
                                 <li><a class="btn-flat statusdropdownitem {{step.id}}" value={{step.id}} id="1"
                                         href="#!">Planning</a></li>
                                 <li><a class="btn-flat statusdropdownitem {{step.id}}" value={{step.id}} id="2"
@@ -66,10 +66,10 @@
                     </div>
 
                     <div class="col">
-                       
 
-                           
-                        
+
+
+
                     </div>
                 </div>
                 {{/each}}
@@ -105,6 +105,11 @@
 
             </div>
 
+
+
+
+
+
         </div>
 
 
@@ -126,7 +131,29 @@
 
             </div>
             <a class="waves-effect waves-light btn addref">Add Reference</a>
+            <div id="myModalRef" class="modal">
 
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close2">&times;</span>
+
+                    <form class="col s12">
+                        <div class="row">
+
+
+                            <div class="input-field col s12">
+                                <input id="ref" type="text" class="validate">
+                                <label for="ref">Reference Link</label> 
+                            </div>
+    
+                        </div>
+                        <div class="row">
+                            <a class="waves-effect waves-light btn submitref">Add</a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
@@ -137,6 +164,8 @@
 <body>
     <script src="/js/addstep.js"></script>
     <script src="/js/project.js"></script>
+    <script src="/js/references.js"></script>
+
 
     <script src="/js/progressbarstat.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
