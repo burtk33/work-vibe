@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="/css/style.css" />
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+
+  
 
 </head>
 
@@ -19,14 +23,15 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 <nav>
                     <div class="nav-wrapper">
-                        <a href="/landingpage" class="brand-logo">Work Vibe</a>
+                        <a href="/" class="brand-logo">Work Vibe</a>
                         <ul class="right hide-on-med-and-down">
-                            <li><a href="/landingpage">HOME</a></li>
+                            
                             <li><a href="/about">ABOUT</a></li>
                             <li><a href="/contact">CONTACT</a></li>
                             {{#if logged_in}}
                             <li id="logout"><a href="">LOG OUT</a></li>
                             {{else}}
+                            <li><a href="/landingpage">LOGIN</a></li>
                             <li><a href="/signup">SIGN UP</a></li>
                             {{/if}}
                         </ul>

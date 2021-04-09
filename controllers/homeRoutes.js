@@ -2,8 +2,7 @@ const router = require("express").Router();
 const { Users, Project, Steps, References, Progress } = require("../models");
 const withAuth = require("../utils/auth");
 
-
-router.get("/homepage", withAuth, async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
     const projectData = await Project.findAll({
       where: { user_id: req.session.user_id },
@@ -20,9 +19,10 @@ router.get("/homepage", withAuth, async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/landingpage", async (req, res) => {
   try {
-    res.render("landingpage");
+    res.render("landingpage", 
+    { logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -30,7 +30,8 @@ router.get("/", async (req, res) => {
 
 router.get("/contact", async (req, res) => {
   try {
-    res.render("contact");
+    res.render("contact",
+    { logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -44,9 +45,9 @@ router.get("/login", async (req, res) => {
   }
 });
 
-router.get("/about", async (req, res) => {
+router.get("/about", withAuth, async (req, res) => {
   try {
-    res.render("about");
+    res.render("about",{ logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -60,7 +61,7 @@ router.get("/signup", async (req, res) => {
   }
 });
 
-router.get("/project", async (req, res) => {
+router.get("/project", withAuth, async (req, res) => {
   try {
     res.render("project");
   } catch (err) {
@@ -110,6 +111,14 @@ router.get("/projects/:id", withAuth, async (req, res) => {
 router.get("/signup", async (req, res) => {
   try {
     res.render("signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/landingpage", async (req, res) => {
+  try {
+    res.render("landingpage");
   } catch (err) {
     res.status(500).json(err);
   }

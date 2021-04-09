@@ -6,23 +6,21 @@
 
             <input type="hidden" name="project-id" value={{project.id}} />
             <div class="row">
-                <h2>{{project.project_title}}</h2>
+                <div class="col s6">
+                    <h2>{{project.project_title}}</h2>
 
-                <h5>ABOUT: {{project.description}}</h5>
+                    <h5>ABOUT: {{project.description}}</h5>
+                </div>
+                <div class="col s6 rect1">
+                    <h5>CURRENT PROGRESS:</h5>
+                    <div id="rect"></div>
+
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="card panel col s8" id="project_card">
-            <div class="row">
-                <h5>Overall Progress</h5>
-                    <select class="progressSelector" onchange="moveProgressBar(value)">
-                            <option value="started">Started</option>
-                            <option value="inProgress">In Progress</option>
-                            <option value="completed">Completed</option>
-                        </select>
-                    <div class="progress" value={{project}}></div>
-                </div>
             <div class="row">
                 <h5> Milestones: </h5>
 
@@ -32,7 +30,7 @@
                     <div class="col s6">
                         <div class="col s8">
                             <div class="col s6">
-                                <input type="hidden" name="project-id" value={{step.id}} class={{step.step_number}} />
+                                <input type="hidden" name="step-id" value={{step.id}} class={{step.step_number}} />
 
                                 <p>{{step.step_number}}. {{step.title}}:
                             </div>
@@ -43,24 +41,36 @@
                         <div class="col s4">
 
                             <p class="current_status" id="{{step.progress_id}}"></p>
+
                         </div>
                     </div>
                     <div class="col">
                         <!-- Dropdown Trigger -->
 
-                        <a class='dropdown-trigger statustrig btn' href='#' data-target='statusdropdown'>Status</a>
+                        <a class='dropdown-trigger statustrig btn {{{step.id}}}' id={{{step.id}}} href='#'
+                            data-target='statusdropdown{{{step.id}}}'>Status</a>
 
                         <!-- Dropdown Structure -->
-                        <ul id='statusdropdown' class='dropdown-content status' onchange="moveProgressBar(value)">
-                            <li><a class="dropdown_item" href="#!" value="started">Planning</a></li>
-                            <li><a class="dropdown_item" href="#!">To Do</a></li>
-                            <li><a class="dropdown_item" href="#!" value="inProgress">In Progress</a></li>
-                            <li><a class="dropdown_item" href="#!" value="completed">Done</a></li>
-
+                        <div id={{step.id}}>
+                            <ul id='statusdropdown{{{step.id}}}' onchange="moveProgressBar(value)" class='dropdown-content status'>
+                                <li><a class="btn-flat statusdropdownitem {{step.id}}" value={{step.id}} id="1"
+                                        href="#!">Planning</a></li>
+                                <li><a class="btn-flat statusdropdownitem {{step.id}}" value={{step.id}} id="2"
+                                        href="#!">To Do</a></li>
+                                <li><a class="btn-flat statusdropdownitem {{step.id}}" value={{step.id}} id="3"
+                                        href="#!">In Progress</a></li>
+                                <li><a class="btn-flat statusdropdownitem {{step.id}}" value={{step.id}} id="4"
+                                        href="#!">Done</a></li>
+                        </div>
                         </ul>
+                    </div>
+
+                    <div class="col">
+
+
+
 
                     </div>
-                    
                 </div>
                 {{/each}}
 
@@ -95,6 +105,11 @@
 
             </div>
 
+
+
+
+
+
         </div>
 
 
@@ -116,7 +131,29 @@
 
             </div>
             <a class="waves-effect waves-light btn addref">Add Reference</a>
+            <div id="myModalRef" class="modal">
 
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close2">&times;</span>
+
+                    <form class="col s12">
+                        <div class="row">
+
+
+                            <div class="input-field col s12">
+                                <input id="ref" type="text" class="validate">
+                                <label for="ref">Reference Link</label> 
+                            </div>
+    
+                        </div>
+                        <div class="row">
+                            <a class="waves-effect waves-light btn submitref">Add</a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
@@ -125,10 +162,19 @@
 
 
 <body>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
     <script src="/js/addstep.js"></script>
     <script src="/js/project.js"></script>
+    <script src="/js/references.js"></script>
+
+
     <script src="/js/progressbarstat.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+
+
 
 
 

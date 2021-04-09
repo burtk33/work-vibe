@@ -45,4 +45,22 @@ router.post('/', async (req, res) => {
     }
   });
 
+  router.put('/', async (req, res) => {
+    try {
+      const dbUserData = await Steps.update({progress_id:req.body.progress_id},{
+        
+        where: {id: req.body.id},
+       
+        
+      
+        // user_id:req.session.user_id
+
+      });
+      res.json(dbUserData);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+
   module.exports = router;
