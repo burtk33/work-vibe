@@ -1,4 +1,5 @@
 
+
 const curStatus = [];
 const statuses = [];
 
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   for (var i = 0; i < curStatus.length; i++) {
     if (curStatus[i] === "1") {
+
       statuses.push("Planning");
     } else if (curStatus[i] === "2") {
       statuses.push("To Do");
