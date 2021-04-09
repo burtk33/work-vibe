@@ -10,7 +10,7 @@ const referenceData =
       "step_id": 1,
       
     }
-  ]
+]
 
   const seedReferences = () => References.bulkCreate(referenceData);
 
