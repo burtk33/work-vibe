@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(arr);
   const arrSum = arr.reduce((a, b) => a + b, 0);
   console.log(arrSum);
-  let currentState = (arrSum / (curStatus.length*4)*100);
+  let currentState = Math.round(arrSum / (curStatus.length*4)*100);
   console.log(currentState);
 
   var svg = d3

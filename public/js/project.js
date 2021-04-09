@@ -41,7 +41,7 @@ const addStatusHandler = async function (event) {
     method: "PUT",
     body: JSON.stringify({
       id: id,
-      // project_id: project_id,
+
       progress_id: progress_id,
     }),
     headers: {
@@ -50,15 +50,49 @@ const addStatusHandler = async function (event) {
   });
 
   if (response.ok) {
-    location.reload();
+    document.location.reload();
    
   } else {
     alert(response.statusText);
   }
 };
 
+const addRefHandler = async function (event) {
+  event.preventDefault();
+  let step_id = document.querySelector('input[name="step-id"]').value.trim();
+  console.log(step_id);
+  let project_id = document
+  .querySelector('input[name="project-id"]')
+  .value.trim();
+  let reference = document
+    .querySelector('input[id="ref"]')
+    .value.trim();
+
+
+  if (title) {
+    const response = await fetch(`/api/reference/`, {
+      method: "POST",
+      body: JSON.stringify({
+        reference: reference,
+
+        project_id: project_id,
+        step_id: step_id,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
+
 document.querySelector(".submitstep").addEventListener("click", addStepHandler);
-// document.querySelector("#addref").addEventListener("click", addRefHandler);
+document.querySelector(".submitref").addEventListener("click", addRefHandler);
 
 // items.addEventListener('click', addStatusHandler)
 const items = document.querySelectorAll(".statusdropdownitem");
