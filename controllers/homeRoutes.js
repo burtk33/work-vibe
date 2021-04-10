@@ -37,25 +37,10 @@ router.get("/contact", async (req, res) => {
   }
 });
 
-router.get("/login", async (req, res) => {
-  try {
-    res.render("login");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 router.get("/about", withAuth, async (req, res) => {
   try {
     res.render("about",{ logged_in: req.session.logged_in });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get("/signup", async (req, res) => {
-  try {
-    res.render("signup");
   } catch (err) {
     res.status(500).json(err);
   }

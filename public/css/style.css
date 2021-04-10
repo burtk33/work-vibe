@@ -10,9 +10,20 @@ main {
   margin-bottom: 20px;
 }
 
+#container {
+    margin: 20px;
+    width: 400px;
+    height: 8px;
+    position: relative;
+  }
+
   .progress {
-    height: 25px;
-    background-color: white;
+    height: 300px;
+}
+
+.progress > svg {
+    height: 100%;
+    display: block;
 }
 
 #project_card {
@@ -85,6 +96,11 @@ nav {
     color: white;
 }
 
+.btn :hover {
+  background-color: white;
+  color: #687a61;
+}
+
 .loginhead {
     text-align: center;
 }
@@ -113,7 +129,6 @@ nav {
 
 #meetTeamBtn {
   margin-bottom: 15px;
-  background-color: rgba(3, 3, 54, 0.918);
 }
 
 #Shan:hover,
@@ -142,10 +157,17 @@ nav {
 }
 
 #meetTeamBtn {
-  color: #687a61;
+
+  background-color: #687a61;
+  color: white;
+}
+
+.fa-envelope {
+  color:#687a61;
 }
 
 .rect1 {
   margin-top: 5%;
 
 }
+
