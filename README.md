@@ -36,5 +36,7 @@ No outside contributions permitted
 
 ## Questions
 Kyle: burtk33@gmail.com
+
 Morgan: mabailey079@gmail.com
+
 Shannon: shannonmariealexander94@gmail.com
