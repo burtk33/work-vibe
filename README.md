@@ -1,6 +1,3 @@
-
-# evergiven
-
 ![License Badge](https://img.shields.io/static/v1?label=License&message=MIT&color=blue)
 # Work Vibe
 
@@ -62,5 +59,7 @@ No outside contributions permitted
 
 ## Questions
 Kyle: burtk33@gmail.com
+
 Morgan: mabailey079@gmail.com
+
 Shannon: shannonmariealexander94@gmail.com
