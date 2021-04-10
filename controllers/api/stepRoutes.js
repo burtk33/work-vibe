@@ -50,10 +50,7 @@ router.post('/', async (req, res) => {
       const dbUserData = await Steps.update({progress_id:req.body.progress_id},{
         
         where: {id: req.body.id},
-       
-        
-      
-        // user_id:req.session.user_id
+        user_id:req.session.user_id
 
       });
       res.json(dbUserData);
