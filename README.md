@@ -30,8 +30,11 @@ No outside contributions permitted
 [License Link](https://choosealicense.com/licenses/mit/)
 
 ## Contributors
+
 [Kyle Burt](https://github.com/burtk33)
+
 [Morgan Bailey](https://github.com/morgan-b)
+
 [Shannon Alexander](https://github.com/sa605935)
 
 ## Questions
