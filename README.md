@@ -1,3 +1,6 @@
+
+# evergiven
+
 ![License Badge](https://img.shields.io/static/v1?label=License&message=MIT&color=blue)
 # Work Vibe
 
@@ -12,6 +15,25 @@
     
 ## Description
 A web application that allows a user to create their own account where projects and project progress are saved. Create new projects and steps within projects to help keep track of your current work load.
+
+
+## Mock Up
+
+### Login
+![Login Page](/assets/loginpage.png)
+
+### Homepage
+![Homepage](/assets/home.png)
+
+### Projects
+![Projects](/assets/projects.png)
+
+### About Us
+![About Us](/assets/about.png)
+
+### Contact
+![Contact Us](/assets/contact.png)
+
 
 ## Installation Instructions
 Must sign up for an account to access all features of the application
@@ -31,6 +53,7 @@ No outside contributions permitted
 
 ## Contributors
 
+
 [Kyle Burt](https://github.com/burtk33)
 
 [Morgan Bailey](https://github.com/morgan-b)
@@ -39,7 +62,5 @@ No outside contributions permitted
 
 ## Questions
 Kyle: burtk33@gmail.com
-
 Morgan: mabailey079@gmail.com
-
 Shannon: shannonmariealexander94@gmail.com
