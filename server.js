@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const hbs = exphbs.create();
-var ProgressBar = require('progressbar.js');
+const compression = require('compression')
 require('dotenv').config();
 
 
@@ -25,6 +25,7 @@ const sess = {
 };
 
 app.use(session(sess));
+app.use(compression());
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

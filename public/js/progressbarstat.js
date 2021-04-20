@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   console.log("hello", curStatus);
-  // });
   let arr = curStatus.map((elem) => parseInt(elem, 10));
   console.log(arr);
   const arrSum = arr.reduce((a, b) => a + b, 0);
